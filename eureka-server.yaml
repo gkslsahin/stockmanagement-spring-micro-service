@@ -4,29 +4,9 @@ spring:
   profiles:
     active: localhost
 
-
 ---
 spring:
   profiles: localhost
-
-  info:
-    componenet: Eureka Server - Github - Localhost
-
-eureka:
-  instance:
-    appname: eureka-server
-    hostname: eureka-server
-    prefer-ip-address: true
-  client:
-    register-with-eureka: false
-    fetch-registry: false
-    service-url:
-      default-zone: http://${eureka.instance.hostname}:${server.port}/eureka
-server:
-  port: 8763
----
-spring:
-  profiles: stage
 
 info:
   componenet: Eureka Server - Github - Localhost
@@ -43,11 +23,13 @@ eureka:
       default-zone: http://${eureka.instance.hostname}:${server.port}/eureka
 
 server:
-  port: 8765
-
+  port: 8763
 ---
 spring:
-  profiles: prod
+  profiles: stage
+
+info:
+  componenet: Eureka Server - Github - Stage
 
 eureka:
   instance:
@@ -59,3 +41,6 @@ eureka:
     fetch-registry: false
     service-url:
       default-zone: http://${eureka.instance.hostname}:${server.port}/eureka
+
+server:
+  port: 8765
